@@ -1,0 +1,65 @@
+1.c
+2.d
+3.a
+4.b
+5.c
+6.a
+7.d
+8.a
+9.b
+10.a
+11.a
+12.b
+13.d
+14.c
+15.b
+16.a
+17.df | awk 'BEGIN {count=0;} {count=count+$5;} END {if( count > 30) print "usage high"; else print
+ "usage normal"}'
+18.
+#!/bin/bash
+
+read username
+
+if [ `id -u $username 2>/dev/null` ]
+
+then
+        echo "user already exist"
+else
+        sudo useradd "$username"
+
+fi
+
+19.
+#!/bin/bash
+ping -c 5 www.google.com >>/dev/null
+
+online=$?
+if [ $online -eq 0 ]; then
+    echo "Online"
+else
+    echo "Offline"
+
+fi
+
+
+20.#!/bin/bash
+echo "controlling the process top"
+echo "enter 1 for start,2 for stop ,3 for restart"
+read num
+
+
+case $num in
+        1)
+                top
+                ;;
+        2)
+                kill pidof top
+                ;;
+        3)
+                top
+                ;;
+esac
+
+
+
